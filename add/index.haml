@@ -1,0 +1,27 @@
+!!! 5
+%html
+  %head
+    %title Add Contacts
+    %link(type="text/css" rel="stylesheet" href="../css/main.css")
+    %script(src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js")
+  %body
+    %div.container
+      %nav
+        %ul
+          %a(href="#")
+            %li Home
+          %a(href="#")
+            %li Add Contacts
+        %ul
+          %a(href="#")
+            %li Log In
+          %a(href="#")
+            %li Sign Up
+          %a(href="#")
+            %li Settings
+      %section
+        %form.addForm
+          %input(type="button" value="Add Contact" id="addButton")
+      %section#showContacts
+        %div#output
+  %script(src="../js/js.js")

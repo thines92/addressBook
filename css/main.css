@@ -1,0 +1,61 @@
+body {
+  font-family: Arial; }
+
+nav {
+  overflow: hidden; }
+
+nav ul:first-child li, nav ul:first-child a {
+  float: left;
+  font-size: 1em;
+  padding: 0.25em;
+  text-decoration: none;
+  list-style: none;
+  color: black; }
+
+nav ul:last-child li, nav ul:last-child ul:first-child a, nav ul:first-child ul:last-child a {
+  float: right;
+  font-size: 1em;
+  padding: 0.25em;
+  text-decoration: none;
+  list-style: none;
+  color: black; }
+
+header {
+  clear: both; }
+  header .mainTitle {
+    font-size: 2em;
+    position: relative;
+    margin: auto;
+    font-weight: bold; }
+  header .mainDesc {
+    font-size: 1.25em;
+    position: relative;
+    margin: auto;
+    font-weight: normal;
+    margin-top: 0.5em; }
+
+section a {
+  text-decoration: none;
+  color: inherit; }
+section p {
+  font-size: 2em;
+  font-weight: bold;
+  color: black;
+  position: relative;
+  margin: auto; }
+
+.addForm #addButton {
+  position: relative;
+  font-size: 0.75em;
+  color: black;
+  padding: 0.25em;
+  border-radius: 5px;
+  margin: auto;
+  clear: both; }
+
+#output {
+  height: 50em;
+  text-align: center;
+  font-size: 1.5em; }
+
+/*# sourceMappingURL=main.css.map */
