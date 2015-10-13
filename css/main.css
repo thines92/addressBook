@@ -52,6 +52,10 @@ section p {
   border-radius: 5px;
   margin: auto;
   clear: both; }
+.addForm #addTextBox {
+  position: relative;
+  margin: 0.5em;
+  margin: auto; }
 
 #output {
   height: 50em;

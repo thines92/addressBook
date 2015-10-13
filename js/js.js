@@ -12,6 +12,23 @@ Contact.prototype.greet = function() {
 
 var tyler = new Contact("Tyler", "555-555-5555");
 
+function createContact(e) {
+    var target = e.target;
+    var contactName = target.value;
+
+    new Contact(contactName, "unknown");
+}
+
 $("#addButton").click(function() {
-    tyler.greet();
+    mike.greet();
+});
+
+$("#addTextBox").bind("enterKey", function(e){
+    createContact();
+})
+
+$("#addTextBox").keyup(function(e){
+    if(e.keyCode == 13) {
+        $(this).trigger("enterKey");
+    }
 });
