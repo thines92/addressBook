@@ -82,4 +82,7 @@ section p {
   left: 90%;
   margin-top: 2.5em; }
 
+.numberInputs input {
+  display: inline-block !important; }
+
 /*# sourceMappingURL=main.css.map */

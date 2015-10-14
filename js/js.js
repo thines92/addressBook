@@ -20,8 +20,9 @@ $("#clickToAdd").click(function(e) {
     //Checks to see if ValidName returns true
     if(validName()) {
         var newName = document.getElementById("addName").value;
-        var newNumber = document.getElementById("addNumber").value;
+        var newNumber = document.getElementById("addNumber1").value + document.getElementById("addNumber2").value + document.getElementById("addNumber3").value;
         newName = newName.charAt(0).toUpperCase() + newName.slice(1).toLowerCase();
+        newNumber = "(" + newNumber.slice(0,3) + ") " + newNumber.slice(3,6) + " - " + newNumber.slice(6);
         newName = new Contact(newName, newNumber);
         $("#output").append("<p>" + "Name: " + newName.name + "</p>" + "<p>" + "Number: " + newName.number + "</p>");
     };
@@ -59,3 +60,9 @@ function validName(e) {
          return true;
     }
 };
+
+$(".numberInputs input[type=text]").keyup('input',function () {
+    if($(this).val().length == $(this).attr('maxlength')) {
+        $(this).next("input").focus();
+    }
+});
