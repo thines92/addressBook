@@ -33,7 +33,7 @@ function validName(e) {
     var nameRegEx = /[^a-z]/ig;
     var numberRegEx = /^(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:\(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})(?:\s*(?:#|x\.?|ext\.?|extension)\s*(\d+))?$/;
     var name = document.getElementById("addName").value;
-    var number = document.getElementById("addNumber").value;
+    var number = document.getElementById("addNumber1").value + document.getElementById("addNumber2").value + document.getElementById("addNumber3").value;
     var isNameValid = name.match(nameRegEx);
     var isNumberValid = number.match(numberRegEx);
 
