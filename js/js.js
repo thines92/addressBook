@@ -1,12 +1,12 @@
 /**
  * Created by tyler on 10/13/15.
  */
-
+//Creates the Contact constructor
 var Contact = function(name, number) {
     this.name = name;
     this.number = number;
 }
-
+//Creates a greet method for all Contact objects that puts the name and number into output
 Contact.prototype.greet = function() {
     document.getElementById("output").innerHTML = this.name + " " + this.number;
 };
@@ -14,32 +14,48 @@ Contact.prototype.greet = function() {
 //var tyler = new Contact("Tyler", "555-555-5555");
 //var mike = new Contact("mike", "555-555-5555");
 
+//When Add Contact button is clicked, runs validName function and outputs name and number to output
 $("#clickToAdd").click(function(e) {
     validName();
-    if(validName == true) {
+    //Checks to see if ValidName returns true
+    if(validName()) {
         var newName = document.getElementById("addName").value;
         var newNumber = document.getElementById("addNumber").value;
+        newName = newName.charAt(0).toUpperCase() + newName.slice(1).toLowerCase();
         newName = new Contact(newName, newNumber);
         $("#output").append("<p>" + "Name: " + newName.name + "</p>" + "<p>" + "Number: " + newName.number + "</p>");
     };
 });
 
+//Validates name and number
 function validName(e) {
     var nameRegEx = /[^a-z]/ig;
+    var numberRegEx = /^(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:\(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})(?:\s*(?:#|x\.?|ext\.?|extension)\s*(\d+))?$/;
     var name = document.getElementById("addName").value;
+    var number = document.getElementById("addNumber").value;
     var isNameValid = name.match(nameRegEx);
+    var isNumberValid = number.match(numberRegEx);
 
     if (name == null || name == "") {
         alert("Enter a real name");
         return false;
-    } else if (isNameValid != -1) {
+    } else if (isNameValid == -1) {
         alert("Please Enter Your Name");
         return false;
-    } else
+    } else if (number == null || number == "") {
+        alert("Please enter a phone number")
+        return false;
+    } else if (isNumberValid == -1) {
+        alert("Please enter a valid phone number");
+        return false;
+    }
+    else
      {
+         //Hides modal only when no input errors
         $("#myModal").modal("hide");
         $("#myModal").on("hidden.bs.modal", function() {
             $("#addName").val("");
         })
+         return true;
     }
 };
