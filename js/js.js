@@ -14,8 +14,7 @@ Contact.prototype.greet = function() {
 //var tyler = new Contact("Tyler", "555-555-5555");
 //var mike = new Contact("mike", "555-555-5555");
 
-
-$("#addButton").click(function() {
+$("#clickToAdd").click(function() {
     var newName = document.getElementById("addName").value;
     var newNumber = document.getElementById("addNumber").value;
     newName = new Contact(newName, newNumber);
