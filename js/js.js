@@ -16,19 +16,27 @@ Contact.prototype.greet = function() {
 
 $("#clickToAdd").click(function(e) {
     validName();
-    var newName = document.getElementById("addName").value;
-    var newNumber = document.getElementById("addNumber").value;
-    newName = new Contact(newName, newNumber);
-    $("#output").append("<p>" + "Name: " + newName.name + "</p>" + "<p>" + "Number: " + newName.number + "</p>");
+    if(validName == true) {
+        var newName = document.getElementById("addName").value;
+        var newNumber = document.getElementById("addNumber").value;
+        newName = new Contact(newName, newNumber);
+        $("#output").append("<p>" + "Name: " + newName.name + "</p>" + "<p>" + "Number: " + newName.number + "</p>");
+    };
 });
 
 function validName(e) {
     var nameRegEx = /[^a-z]/ig;
     var name = document.getElementById("addName").value;
+    var isNameValid = name.match(nameRegEx);
 
     if (name == null || name == "") {
         alert("Enter a real name");
-    } else {
+        return false;
+    } else if (isNameValid != -1) {
+        alert("Please Enter Your Name");
+        return false;
+    } else
+     {
         $("#myModal").modal("hide");
         $("#myModal").on("hidden.bs.modal", function() {
             $("#addName").val("");
