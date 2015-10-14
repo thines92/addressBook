@@ -66,3 +66,7 @@ $(".numberInputs input[type=text]").keyup('input',function () {
         $(this).next("input").focus();
     }
 });
+
+$('#myModal').on('shown.bs.modal', function () {
+    $('#addName').focus();
+})
