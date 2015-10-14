@@ -58,8 +58,28 @@ section p {
   margin: auto; }
 
 #output {
-  height: 50em;
-  text-align: center;
-  font-size: 1.5em; }
+  margin-top: 3em; }
+
+#output p {
+  height: auto;
+  text-align: left;
+  font-size: 1em;
+  margin-top: 0.5em;
+  font-weight: normal; }
+
+.modal-footer input {
+  position: relative;
+  display: inline-block !important; }
+
+#myModal input {
+  position: relative;
+  margin: 0.5em;
+  font-size: 1em;
+  display: block; }
+
+#addSign {
+  position: relative;
+  left: 90%;
+  margin-top: 2.5em; }
 
 /*# sourceMappingURL=main.css.map */
