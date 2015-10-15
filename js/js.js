@@ -2,6 +2,7 @@
  * Created by tyler on 10/13/15.
  */
 //Creates the Contact constructor
+
 var Contact = function(name, number) {
     this.name = name;
     this.number = number;
@@ -11,20 +12,21 @@ Contact.prototype.greet = function() {
     document.getElementById("output").innerHTML = this.name + " " + this.number;
 };
 
-//var tyler = new Contact("Tyler", "555-555-5555");
-//var mike = new Contact("mike", "555-555-5555");
+function createPerson() {
+    var newName = document.getElementById("addName").value;
+    var newNumber = document.getElementById("addNumber1").value + document.getElementById("addNumber2").value + document.getElementById("addNumber3").value;
+    newName = newName.charAt(0).toUpperCase() + newName.slice(1).toLowerCase();
+    newNumber = "(" + newNumber.slice(0,3) + ") " + newNumber.slice(3,6) + " - " + newNumber.slice(6);
+    newName = new Contact(newName, newNumber);
+    $("#output").append("<p>" + "Name: " + newName.name + "</p>" + "<p>" + "Number: " + newName.number + "</p>");
+}
 
 //When Add Contact button is clicked, runs validName function and outputs name and number to output
 $("#clickToAdd").click(function(e) {
     validName();
     //Checks to see if ValidName returns true
     if(validName()) {
-        var newName = document.getElementById("addName").value;
-        var newNumber = document.getElementById("addNumber1").value + document.getElementById("addNumber2").value + document.getElementById("addNumber3").value;
-        newName = newName.charAt(0).toUpperCase() + newName.slice(1).toLowerCase();
-        newNumber = "(" + newNumber.slice(0,3) + ") " + newNumber.slice(3,6) + " - " + newNumber.slice(6);
-        newName = new Contact(newName, newNumber);
-        $("#output").append("<p>" + "Name: " + newName.name + "</p>" + "<p>" + "Number: " + newName.number + "</p>");
+        createPerson();
     };
 });
 
@@ -59,24 +61,28 @@ function validName(e) {
          //Hides modal only when no input errors
         $("#myModal").modal("hide");
         $("#myModal").on("hidden.bs.modal", function() {
+            //Clears the addName and addNumber inputs after submit
             $("#addName").val("");
+            $("#addNumber1 , #addNumber2, #addNumber3").val("");
         })
          return true;
     }
 };
 
+//Auto tab when maxlength is reached
 $(".numberInputs input[type=text]").keyup('input',function () {
     if($(this).val().length == $(this).attr('maxlength')) {
         $(this).next("input").focus();
     }
 });
 
+//Puts focus on addName textbox on modal open
 $('#myModal').on('shown.bs.modal', function () {
     $('#addName').focus();
 })
 
+//Submits modal on enter key
 $('#myModal').bind("enterKey",function(e){
-    //do stuff here
     $("#clickToAdd").click();
 });
 $('#myModal').keyup(function(e){
@@ -84,4 +90,9 @@ $('#myModal').keyup(function(e){
     {
         $(this).trigger("enterKey");
     }
+});
+
+//Adds click function on contact submissions
+$("#output").on('click', 'p', function () {
+    alert("OK");
 });
