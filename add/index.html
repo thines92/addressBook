@@ -31,8 +31,10 @@
         </ul>
       </nav>
       <section>
-        <div id='addDiv'>
-          <input data-target='#myModal' data-toggle='modal' id='addSign' type='button' value='+'>
+        <div id='showContacts'>
+          <h1 class='showContactsTitle'>My Contact List</h1>
+          <div id='addDiv'></div>
+          <input data-target='#myModal' data-toggle='modal' id='addSign' type='button' value='Add Contact'>
           <div class='modal fade' id='myModal' role='dialog'>
             <div class='modal-dialog'>
               <div class='modal-content'>
@@ -55,11 +57,7 @@
               </div>
             </div>
           </div>
-        </div>
-        <div id='showContacts'>
-          <div id='output'>
-            <p>Test</p>
-          </div>
+          <div id='output'></div>
         </div>
       </section>
     </div>

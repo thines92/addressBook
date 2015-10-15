@@ -7,35 +7,43 @@ nav
   overflow: hidden
 nav
   ul:first-child
+    float: left
+    padding: 0
     li
       float: left
-      font-size: 1em
-      padding: .25em
+      font-size: 1.15em
+      padding: .4em
       text-decoration: none
       list-style: none
       color: black
-    a
-      @extend li
 nav
   ul:last-child
+    float: right
     li
       float: right
-      font-size: 1em
+      font-size: 1.15em
       padding: .25em
       text-decoration: none
       list-style: none
       color: black
+nav
+  ul
+    li:hover
+      color: red
+      font-size: 1.25em
+      padding: .15em
 header
   clear: both
+  margin-top: 2.5em
   .mainTitle
     font-size: 2em
     position: relative
-    margin: auto
+    text-align: center
     font-weight: bold
   .mainDesc
     font-size: 1.25em
     position: relative
-    margin: auto
+    text-align: center
     font-weight: normal
     margin-top: .5em
 section
@@ -45,9 +53,14 @@ section
   p
     font-size: 2em
     font-weight: bold
-    color: black
+    color: skyblue
     position: relative
-    margin: auto
+    margin-top: 2.5em
+    text-align: center
+.go:hover
+  font-size: 2.5em
+  margin-top: 2em
+  color: red
 .addForm
   #addButton
     position: relative
@@ -61,6 +74,13 @@ section
     position: relative
     margin: .5em
     margin: auto
+#showContacts
+  height: auto
+  border: 1px solid black
+.showContactsTitle
+  text-align: center
+  color: skyblue
+  text-decoration: underline
 #output
   margin-top: 3em
 #output
@@ -70,6 +90,9 @@ section
     font-size: 1em
     margin-top: .5em
     font-weight: normal
+    color: black
+    padding-left: .5em
+    margin-bottom: 1em
 .modal-footer
   input
     position: relative
@@ -82,8 +105,10 @@ section
     display: block
 #addSign
   position: relative
-  left: 90%
-  margin-top: 2.5em
+  left: 1.5%
+  margin-top: .5em
+  background-color: transparent
+  border-radius: 5px
 .numberInputs
   input
     display: inline-block !important

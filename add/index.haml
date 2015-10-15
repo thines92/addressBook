@@ -22,8 +22,10 @@
           %a(href="#")
             %li Settings
       %section
-        %div#addDiv
-          %input(type="button" id="addSign" data-toggle="modal" data-target="#myModal" value="+")
+        %div#showContacts
+          %h1.showContactsTitle My Contact List
+          %div#addDiv
+          %input(type="button" id="addSign" data-toggle="modal" data-target="#myModal" value="Add Contact")
           %div(id="myModal" class="modal fade" role="dialog")
             %div.modal-dialog
               %div.modal-content
@@ -39,7 +41,5 @@
                 %div.modal-footer
                   %input(type="button" class="btn btn-default" id="clickToAdd" value="Create Contact")
                   %input(type="button" class="btn btn-default" data-dismiss="modal" value="Close")
-        %div#showContacts
           %div#output
-            %p Test
   %script(src="../js/js.js")
