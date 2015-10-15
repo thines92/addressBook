@@ -39,15 +39,19 @@ function validName(e) {
 
     if (name == null || name == "") {
         alert("Enter a real name");
+        $("addName").focus();
         return false;
     } else if (isNameValid == -1) {
         alert("Please Enter Your Name");
+        $("addName").focus();
         return false;
     } else if (number == null || number == "") {
         alert("Please enter a phone number")
+        $("#addNumber1").focus();
         return false;
     } else if (isNumberValid == -1) {
         alert("Please enter a valid phone number");
+        $("#addNumber1").focus();
         return false;
     }
     else
@@ -70,3 +74,14 @@ $(".numberInputs input[type=text]").keyup('input',function () {
 $('#myModal').on('shown.bs.modal', function () {
     $('#addName').focus();
 })
+
+$('#myModal').bind("enterKey",function(e){
+    //do stuff here
+    $("#clickToAdd").click();
+});
+$('#myModal').keyup(function(e){
+    if(e.keyCode == 13)
+    {
+        $(this).trigger("enterKey");
+    }
+});
